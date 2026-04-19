@@ -34,3 +34,10 @@ func _physics_process(delta: float) -> void:
 
 	# Execute the movement
 	move_and_slide()
+	
+	# Check for collisions with the player to deal damage
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider == player and collider.has_method("take_damage"):
+			collider.take_damage(1)
