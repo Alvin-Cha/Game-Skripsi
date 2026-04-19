@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dhaxo7fl7cds1"]
+
+[ext_resource type="PackedScene" uid="uid://c31hfhxo6xyiw" path="res://scenes/player/player.tscn" id="1_dtyxf"]
+[ext_resource type="PackedScene" uid="uid://bmn4chwcx6y5v" path="res://scenes/enemy/enemy.tscn" id="2_iubku"]
+
+[node name="World" type="Node3D" unique_id=1551797016]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1583410906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2314506, 0.18432641, 0.92464566)
+use_collision = true
+size = Vector3(16.695862, 0.63134766, 17.50428)
+
+[node name="Player" parent="." unique_id=493579035 instance=ExtResource("1_dtyxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39570236, 0.75289303, 1.8593183)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=21528394]
+transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0, 0.49999997, 0.86602545, -1, 3.7855173e-08, -2.1855692e-08, 8.67448, 19.76515, 1.183157)
+
+[node name="Enemy" parent="." unique_id=1489694662 node_paths=PackedStringArray("player") instance=ExtResource("2_iubku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4256406, 0.63266104, 2.1152194)
+player = NodePath("../Player")
