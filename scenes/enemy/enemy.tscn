@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bmn4chwcx6y5v"]
 
 [ext_resource type="PackedScene" uid="uid://cc15k4gryulr7" path="res://assets/character/Y Bot.fbx" id="1_4a83h"]
-[ext_resource type="Script" uid="uid://d2enlyilmtg5p" path="res://scripts/enemy.gd" id="1_a3pup"]
+[ext_resource type="Script" uid="uid://d2enlyilmtg5p" path="res://scripts/enemyTracking.gd" id="1_a3pup"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
 
