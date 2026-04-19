@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
 const SPEED = 2.0
+const BULLET_SCENE = preload("res://scenes/enemy/bulletEnemy.tscn")
+var shoot_timer: float = 0.0
+var shoot_interval: float = 2.0
 
 # In the Inspector, you must assign the Player node to this slot!
 @export var player: Node3D
@@ -27,6 +30,12 @@ func _physics_process(delta: float) -> void:
 		# Apply movement speed
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		
+		# Shooting logic
+		shoot_timer -= delta
+		if shoot_timer <= 0.0:
+			shoot_timer = shoot_interval
+			shoot()
 	else:
 		# Stop moving if no player is found
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -41,3 +50,32 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider == player and collider.has_method("take_damage"):
 			collider.take_damage(1)
+
+func shoot() -> void:
+	if not player:
+		return
+		
+	var bullet = BULLET_SCENE.instantiate()
+	get_parent().add_child(bullet)
+	
+	# Start bullet slightly elevated
+	bullet.position = global_position + Vector3(0, 1.0, 0)
+	
+	# Aim at player
+	var aim_target = player.global_position + Vector3(0, 1.0, 0) # Aim at center of player
+	bullet.direction = bullet.position.direction_to(aim_target).normalized()
+
+func die() -> void:
+	var new_enemy = load("res://scenes/enemy/enemy.tscn").instantiate()
+	
+	var angle = randf() * PI * 2.0
+	var radius = 8.0
+	var random_pos = Vector3(cos(angle) * radius, position.y, sin(angle) * radius)
+	var center = Vector3(0, 0, 0) 
+	
+	new_enemy.position = center + random_pos
+	new_enemy.player = player
+	
+	get_parent().call_deferred("add_child", new_enemy)
+	queue_free()
+

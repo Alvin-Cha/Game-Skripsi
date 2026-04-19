@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const DASH_VELOCITY = 5.0
+const BULLET_SCENE = preload("res://scenes/player/bulletPlayer.tscn")
 
 var hp: int = 3
 var is_invulnerable: bool = false
@@ -59,3 +60,32 @@ func take_damage(amount: int) -> void:
 		
 	is_invulnerable = true
 	invulnerability_timer = 3.0
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if hp > 0:
+			shoot()
+
+func shoot() -> void:
+	var camera = $Camera3D
+	if not camera:
+		return
+	
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_direction = camera.project_ray_normal(mouse_pos)
+	
+	var plane = Plane(Vector3.UP, Vector3(0, 1.0, 0))
+	var target_pos = plane.intersects_ray(ray_origin, ray_direction)
+	
+	if target_pos != null:
+		var bullet = BULLET_SCENE.instantiate()
+		bullet.is_player_bullet = true
+		get_parent().add_child(bullet)
+		
+		bullet.position = global_position + Vector3(0, 1.0, 0)
+		
+		var dir = (target_pos - bullet.position)
+		dir.y = 0
+		if dir.length_squared() > 0.001:
+			bullet.direction = dir.normalized()
