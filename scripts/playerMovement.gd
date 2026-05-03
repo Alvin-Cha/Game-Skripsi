@@ -8,7 +8,11 @@ const BULLET_SCENE = preload("res://scenes/player/bulletPlayer.tscn")
 var hp: int = 3
 var is_invulnerable: bool = false
 var invulnerability_timer: float = 0.0
+@export var heart_textures: Array[TextureRect] = []
 
+func update_hearts() -> void:
+	for i in range(heart_textures.size()):
+		heart_textures[i].visible = i < hp
 
 func _physics_process(delta: float) -> void:
 	# Handle invulnerability timer
@@ -51,6 +55,8 @@ func take_damage(amount: int) -> void:
 	hp -= amount
 	if hp < 0:
 		hp = 0
+
+	update_hearts()
 		
 	print("Player took damage! HP left: ", hp)
 	
