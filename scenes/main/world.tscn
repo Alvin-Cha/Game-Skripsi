@@ -29,7 +29,8 @@ transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -18.52138, 0.
 [node name="CanvasLayer2" type="CanvasLayer" parent="Player" unique_id=2111294293]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=21528394]
-transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0.56889206, 0.41120604, 0.7122299, -0.8224122, 0.28444603, 0.49267498, -13.702843, 19.76515, 13.546156)
+transform = Transform3D(-0.36679116, -0.9298576, -0.028794384, 0.80690175, -0.33338952, 0.48760748, -0.46300527, 0.15561588, 0.87258804, -13.702843, 20.539173, 9.984311)
+light_energy = 0.5
 
 [node name="Enemy" parent="." unique_id=1489694662 node_paths=PackedStringArray("player") instance=ExtResource("2_iubku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4256406, 0.63266104, 2.1152194)
@@ -67,3 +68,7 @@ material = SubResource("StandardMaterial3D_0aorq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=644705114]
 environment = SubResource("Environment_526id")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1336861365]
+transform = Transform3D(0.7311657, 0.607629, 0.31013492, -0.6301761, 0.42745635, 0.64819676, 0.26129413, -0.6693789, 0.6954547, -13.702843, 19.76515, 13.546156)
+light_energy = 0.5
