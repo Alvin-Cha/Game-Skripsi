@@ -1,23 +1,69 @@
 [gd_scene format=3 uid="uid://dhaxo7fl7cds1"]
 
 [ext_resource type="PackedScene" uid="uid://c31hfhxo6xyiw" path="res://scenes/player/player.tscn" id="1_dtyxf"]
+[ext_resource type="Material" uid="uid://di1wvx2r6hhbx" path="res://Floor.tres" id="1_y2s00"]
 [ext_resource type="PackedScene" uid="uid://bmn4chwcx6y5v" path="res://scenes/enemy/enemy.tscn" id="2_iubku"]
+[ext_resource type="Material" uid="uid://nomou70bjtjq" path="res://Wall.tres" id="4_526id"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0aorq"]
+albedo_color = Color(0, 1, 1, 1)
+emission_enabled = true
+emission = Color(0, 1, 1, 1)
+emission_energy_multiplier = 10.85
+
+[sub_resource type="Environment" id="Environment_526id"]
+background_mode = 1
+glow_enabled = true
 
 [node name="World" type="Node3D" unique_id=1551797016]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1583410906]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0610638, 0.18432641, 0.16322422)
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.42149484, -17.850178, -9.232328, 1.9416461)
 use_collision = true
-size = Vector3(65.6711, 0.63134766, 48.778915)
+size = Vector3(18, 19.989517, 18.00518)
+material = ExtResource("1_y2s00")
 
 [node name="Player" parent="." unique_id=493579035 instance=ExtResource("1_dtyxf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39570236, 0.75289303, 1.8593183)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -18.52138, 0.75289303, 0.7260232)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="Player" unique_id=2111294293]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=21528394]
-transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0, 0.49999997, 0.86602545, -1, 3.7855173e-08, -2.1855692e-08, 8.67448, 19.76515, 1.183157)
+transform = Transform3D(-4.371139e-08, -0.86602545, 0.49999997, 0.56889206, 0.41120604, 0.7122299, -0.8224122, 0.28444603, 0.49267498, -13.702843, 19.76515, 13.546156)
 
 [node name="Enemy" parent="." unique_id=1489694662 node_paths=PackedStringArray("player") instance=ExtResource("2_iubku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4256406, 0.63266104, 2.1152194)
 player = NodePath("../Player")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=358578087]
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 1.1380361, 2.4316192, 0.37475824, 1.9416461)
+use_collision = true
+size = Vector3(38, 1.0210266, 18.00518)
+material = ExtResource("1_y2s00")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=235751603]
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.42149484, -17.850178, 5.333598, -2.2638083)
+use_collision = true
+size = Vector3(18, 9, 2)
+material = ExtResource("4_526id")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1315516180]
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.42149484, -11.6757965, 5.333598, -5.58203)
+use_collision = true
+size = Vector3(1, 9, 15)
+material = ExtResource("4_526id")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=408544584]
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.42149484, 2.1257606, 5.333598, -8.532494)
+use_collision = true
+size = Vector3(39, 9, 1)
+material = ExtResource("4_526id")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=1837393088]
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.27397165, -23.286163, 3.3595023, 1.9416461)
+use_collision = true
+size = Vector3(4, 5, 11)
+material = SubResource("StandardMaterial3D_0aorq")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=644705114]
+environment = SubResource("Environment_526id")
