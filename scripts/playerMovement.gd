@@ -10,6 +10,12 @@ var is_invulnerable: bool = false
 var invulnerability_timer: float = 0.0
 @export var heart_textures: Array[TextureRect] = []
 
+var is_parrying: bool = false
+var parry_timer: float = 0.0
+var parry_cooldown_timer: float = 0.0
+var has_parried_successfully: bool = false
+@onready var character_model = $CharacterModel
+
 func update_hearts() -> void:
 	for i in range(heart_textures.size()):
 		heart_textures[i].visible = i < hp
@@ -20,6 +26,18 @@ func _physics_process(delta: float) -> void:
 		invulnerability_timer -= delta
 		if invulnerability_timer <= 0.0:
 			is_invulnerable = false
+
+	# Handle parry cooldown timer
+	if parry_cooldown_timer > 0.0:
+		parry_cooldown_timer -= delta
+
+	# Handle parry timer
+	if is_parrying:
+		parry_timer -= delta
+		if parry_timer <= 0.0:
+			is_parrying = false
+			if not has_parried_successfully:
+				parry_cooldown_timer = 5.0
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -77,6 +95,24 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if hp > 0:
 			shoot()
+	elif event is InputEventKey and event.keycode == KEY_F and event.pressed and not event.echo:
+		if hp > 0 and not is_parrying and parry_cooldown_timer <= 0.0:
+			start_parry()
+
+func start_parry() -> void:
+	is_parrying = true
+	parry_timer = 1.0
+	has_parried_successfully = false
+	
+	if character_model:
+		var tween = create_tween()
+		tween.tween_property(character_model, "rotation:y", character_model.rotation.y + TAU, 1.0)
+
+func successful_parry() -> void:
+	if not has_parried_successfully:
+		has_parried_successfully = true
+		parry_cooldown_timer = 0.0
+		print("Parry successful! Cooldown reset.")
 
 func shoot() -> void:
 	var camera = $Camera3D

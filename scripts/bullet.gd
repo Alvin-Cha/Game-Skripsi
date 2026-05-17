@@ -18,8 +18,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if not is_player_bullet and "Player" in body.name and body.has_method("take_damage"):
-		body.take_damage(damage)
-		queue_free()
+		if body.get("is_parrying"):
+			direction = -direction
+			is_player_bullet = true
+			if body.has_method("successful_parry"):
+				body.successful_parry()
+		else:
+			body.take_damage(damage)
+			queue_free()
 	elif is_player_bullet and (body.has_method("take_damage") or body.has_method("die")) and not "Player" in body.name:
 		if body.has_method("take_damage"):
 			body.take_damage(damage)
