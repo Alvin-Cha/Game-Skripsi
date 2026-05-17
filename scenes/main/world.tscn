@@ -6,9 +6,9 @@
 [node name="World" type="Node3D" unique_id=1551797016]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1583410906]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2314506, 0.18432641, 0.92464566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0610638, 0.18432641, 0.16322422)
 use_collision = true
-size = Vector3(16.695862, 0.63134766, 17.50428)
+size = Vector3(65.6711, 0.63134766, 48.778915)
 
 [node name="Player" parent="." unique_id=493579035 instance=ExtResource("1_dtyxf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39570236, 0.75289303, 1.8593183)

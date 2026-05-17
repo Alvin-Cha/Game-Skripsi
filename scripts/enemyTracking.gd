@@ -1,12 +1,25 @@
 extends CharacterBody3D
 
-const SPEED = 2.0
+var speed: float = 2.0
+var hp: int = 1
 const BULLET_SCENE = preload("res://scenes/enemy/bulletEnemy.tscn")
 var shoot_timer: float = 0.0
 var shoot_interval: float = 2.0
 
 # In the Inspector, you must assign the Player node to this slot!
 @export var player: Node3D
+
+func _ready() -> void:
+	var type = randi() % 3
+	if type == 0:
+		speed = 1.0
+		hp = 4
+	elif type == 1:
+		speed = 2.0
+		hp = 2
+	else:
+		speed = 4.0
+		hp = 1
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity so the enemy falls to the floor
@@ -28,8 +41,8 @@ func _physics_process(delta: float) -> void:
 			look_at(look_target, Vector3.UP)
 		
 		# Apply movement speed
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
 		
 		# Shooting logic
 		shoot_timer -= delta
@@ -38,8 +51,8 @@ func _physics_process(delta: float) -> void:
 			shoot()
 	else:
 		# Stop moving if no player is found
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
 
 	# Execute the movement
 	move_and_slide()
@@ -48,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		if collider == player and collider.has_method("take_damage"):
+		if (collider == player or "Player" in collider.name) and collider.has_method("take_damage"):
 			collider.take_damage(1)
 
 func shoot() -> void:
@@ -64,6 +77,11 @@ func shoot() -> void:
 	# Aim at player
 	var aim_target = player.global_position + Vector3(0, 1.0, 0) # Aim at center of player
 	bullet.direction = bullet.position.direction_to(aim_target).normalized()
+
+func take_damage(amount: int) -> void:
+	hp -= amount
+	if hp <= 0:
+		die()
 
 func die() -> void:
 	var new_enemy = load("res://scenes/enemy/enemy.tscn").instantiate()

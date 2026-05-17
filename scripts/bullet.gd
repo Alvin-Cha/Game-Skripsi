@@ -4,6 +4,7 @@ var speed: float = 10.0
 var direction: Vector3 = Vector3.ZERO
 var lifetime: float = 5.0
 var is_player_bullet: bool = false
+@export var damage: int = 1
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -17,8 +18,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if not is_player_bullet and "Player" in body.name and body.has_method("take_damage"):
-		body.take_damage(1)
+		body.take_damage(damage)
 		queue_free()
-	elif is_player_bullet and body.has_method("die") and not "Player" in body.name:
-		body.die()
+	elif is_player_bullet and (body.has_method("take_damage") or body.has_method("die")) and not "Player" in body.name:
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+		else:
+			body.die()
 		queue_free()
