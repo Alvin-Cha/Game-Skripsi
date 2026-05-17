@@ -96,4 +96,3 @@ func die() -> void:
 	
 	get_parent().call_deferred("add_child", new_enemy)
 	queue_free()
-

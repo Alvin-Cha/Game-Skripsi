@@ -2,11 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cc15k4gryulr7" path="res://assets/character/Y Bot.fbx" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://ej2qld1q5uug" path="res://scripts/playerMovement.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b5bqjnd3wovpf" path="res://assets/UI/Health UI/heart1.png" id="3_p47bc"]
+[ext_resource type="Texture2D" uid="uid://b47quklyec7g8" path="res://assets/UI/Health UI/heart2.png" id="4_75vfm"]
+[ext_resource type="Texture2D" uid="uid://b5lq51xvb1gdc" path="res://assets/UI/Health UI/heart3.png" id="5_0owmy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
 
-[node name="Player" type="CharacterBody3D" unique_id=493579035]
+[node name="Player" type="CharacterBody3D" unique_id=493579035 node_paths=PackedStringArray("heart_textures")]
 script = ExtResource("1_g2els")
+heart_textures = [NodePath("CanvasLayer/HBoxContainer/TextureRect"), NodePath("CanvasLayer/HBoxContainer/TextureRect2"), NodePath("CanvasLayer/HBoxContainer/TextureRect3")]
 
 [node name="CharacterModel" parent="." unique_id=1104563521 instance=ExtResource("1_3vyb7")]
 
@@ -16,3 +20,30 @@ shape = SubResource("CapsuleShape3D_g2els")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1278298838]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.634764, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1064725815]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=2135594244]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 524.0
+offset_bottom = 214.0
+size_flags_stretch_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=346891530]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_p47bc")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=196688575]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("4_75vfm")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1516950719]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("5_0owmy")
