@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://cvr5awter57bo" path="res://scenes/main/enemySpawner.gd" id="2_526id"]
 [ext_resource type="PackedScene" uid="uid://bmn4chwcx6y5v" path="res://scenes/enemy/enemy.tscn" id="2_iubku"]
 [ext_resource type="Material" uid="uid://nomou70bjtjq" path="res://Wall.tres" id="4_526id"]
+[ext_resource type="Script" uid="uid://c1lajj7g646oc" path="res://scripts/teleport.gd" id="5_teleport"]
+
+[sub_resource type="Environment" id="Environment_526id"]
+background_mode = 1
+glow_enabled = true
 
 [sub_resource type="Environment" id="Environment_526id"]
 background_mode = 1
@@ -100,8 +105,8 @@ material = SubResource("StandardMaterial3D_0aorq")
 [node name="Exit portal" type="CSGBox3D" parent="Room 1" unique_id=1837393088]
 transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.27397165, -23.241007, 3.3595023, 1.8929696)
 use_collision = true
-size = Vector3(4, 5, 11)
-material = SubResource("StandardMaterial3D_0aorq")
+size = Vector3(38.11084, 9, 1)
+material = ExtResource("4_526id")
 
 [node name="Room 2" type="Node" parent="." unique_id=1054898006]
 
@@ -114,8 +119,14 @@ material = ExtResource("1_y2s00")
 [node name="Enterance portal" type="CSGBox3D" parent="Room 2" unique_id=93059842]
 transform = Transform3D(0.38328636, 0, 0, 0, 1.0393614, 0, 0, 0, 0.020564439, 203.67706, 7.4805346, -6.356936)
 use_collision = true
-size = Vector3(4, 10.093803, 11)
-material = SubResource("StandardMaterial3D_0aorq")
+size = Vector3(38, 1.0210266, 18.00518)
+material = ExtResource("1_y2s00")
+
+[node name="FloorA" type="CSGBox3D" parent="Floor" unique_id=1583410906]
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.42149484, -17.850178, -9.232328, 1.9416461)
+use_collision = true
+size = Vector3(18, 19.989517, 18.00518)
+material = ExtResource("1_y2s00")
 
 [node name="Floor2" type="CSGBox3D" parent="Room 2" unique_id=2103432514]
 transform = Transform3D(0.27841842, 0, 0, 0, 1.0528245, 0, 0, 0, 1.677354, 147.68895, 2.0603104, -15.817432)
@@ -132,5 +143,34 @@ material = ExtResource("1_y2s00")
 [node name="Floor4" type="CSGBox3D" parent="Room 2" unique_id=2074257376]
 transform = Transform3D(0.006008857, 0, 0, 0, 1.228638, 0, 0, 0, 7.9158745, 156.55084, 1.8184023, -70.27381)
 use_collision = true
-size = Vector3(6184.588, 1.0210266, 0.363487)
-material = ExtResource("1_y2s00")
+size = Vector3(4, 10.093803, 11)
+material = SubResource("StandardMaterial3D_0aorq")
+
+[node name="Entrance2" type="Marker3D" parent="Lifts/EntranceF2" unique_id=123450003]
+transform = Transform3D(2.6090155, 0, 0, 0, 0.96212935, 0, 0, 0, 48.627636, -0.00018310547, -4.676463, -128.52594)
+
+[node name="LiftF1" type="CSGBox3D" parent="Lifts" unique_id=1843253667]
+transform = Transform3D(0.52765363, 0, 0, 0, 1.0260717, 0, 0, 0, 0.075060464, 13.36471, -4.6971593, -8.539116)
+use_collision = true
+size = Vector3(4, 21.230438, 11)
+material = SubResource("StandardMaterial3D_0aorq")
+
+[node name="EntranceF1" type="CSGBox3D" parent="Lifts" unique_id=1837393088]
+transform = Transform3D(0.72639775, 0, 0, 0, 1.012952, 0, 0, 0, 0.27397165, -23.241007, 3.3595023, 1.8929696)
+use_collision = true
+size = Vector3(4, 5, 11)
+material = SubResource("StandardMaterial3D_0aorq")
+
+[node name="Lift1" type="Area3D" parent="Lifts" unique_id=123450001 node_paths=PackedStringArray("target_destination")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.36471, -4.6971593, -8.539116)
+script = ExtResource("5_teleport")
+target_destination = NodePath("../EntranceF2/Entrance2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lifts/Lift1" unique_id=123450002]
+shape = SubResource("BoxShape3D_lift1")
+
+[node name="Enemy_NPC" type="Node" parent="." unique_id=344372900]
+
+[node name="Enemy" parent="Enemy_NPC" unique_id=1489694662 node_paths=PackedStringArray("player") instance=ExtResource("2_iubku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4256406, 0.63266104, 2.1152194)
+player = NodePath("../../Player")
