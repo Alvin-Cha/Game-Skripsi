@@ -16,6 +16,9 @@ var parry_cooldown_timer: float = 0.0
 var has_parried_successfully: bool = false
 @onready var character_model = $CharacterModel
 
+func _ready():
+	add_to_group("player")
+
 func update_hearts() -> void:
 	for i in range(heart_textures.size()):
 		heart_textures[i].visible = i < hp
