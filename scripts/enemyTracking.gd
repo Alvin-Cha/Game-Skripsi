@@ -6,20 +6,37 @@ const BULLET_SCENE = preload("res://scenes/enemy/bulletEnemy.tscn")
 var shoot_timer: float = 0.0
 var shoot_interval: float = 2.0
 
+var enemy_type: int = 0
+
 # In the Inspector, you must assign the Player node to this slot!
 @export var player: Node3D
 
 func _ready() -> void:
-	var type = randi() % 3
-	if type == 0:
+	enemy_type = randi() % 3
+	if enemy_type == 0:
 		speed = 1.0
 		hp = 4
-	elif type == 1:
+		apply_visual_tint(Color(0.2, 0.8, 0.4)) # Green/Teal for slow tanky enemy
+	elif enemy_type == 1:
 		speed = 2.0
 		hp = 2
+		apply_visual_tint(Color(0.2, 0.6, 1.0)) # Cyan/Blue for normal enemy
 	else:
 		speed = 4.0
 		hp = 1
+		apply_visual_tint(Color(1.0, 0.3, 0.3)) # Red/Orange for fast enemy
+
+func apply_visual_tint(color: Color) -> void:
+	if has_node("CharacterModel"):
+		_apply_color_to_meshes($CharacterModel, color)
+
+func _apply_color_to_meshes(node: Node, color: Color) -> void:
+	if node is MeshInstance3D:
+		var mat = StandardMaterial3D.new()
+		mat.albedo_color = color
+		node.material_override = mat
+	for child in node.get_children():
+		_apply_color_to_meshes(child, color)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity so the enemy falls to the floor
@@ -68,15 +85,33 @@ func shoot() -> void:
 	if not player:
 		return
 		
-	var bullet = BULLET_SCENE.instantiate()
-	get_parent().add_child(bullet)
-	
-	# Start bullet slightly elevated
-	bullet.position = global_position + Vector3(0, 1.0, 0)
-	
-	# Aim at player
 	var aim_target = player.global_position + Vector3(0, 1.0, 0) # Aim at center of player
-	bullet.direction = bullet.position.direction_to(aim_target).normalized()
+	var spawn_pos = global_position + Vector3(0, 1.0, 0) # Start bullet slightly elevated
+	
+	if enemy_type == 2:
+		# Fast enemy: 3 bullet cluster at 45 degree spread
+		var angles = [-30.0, 0.0, 30.0]
+		for angle in angles:
+			var bullet = BULLET_SCENE.instantiate()
+			get_parent().add_child(bullet)
+			bullet.position = spawn_pos
+			
+			var base_dir = spawn_pos.direction_to(aim_target).normalized()
+			bullet.direction = base_dir.rotated(Vector3.UP, deg_to_rad(angle)).normalized()
+	elif enemy_type == 0:
+		# Slow enemy: shoot slow bullet but bigger
+		var bullet = BULLET_SCENE.instantiate()
+		get_parent().add_child(bullet)
+		bullet.position = spawn_pos
+		bullet.direction = spawn_pos.direction_to(aim_target).normalized()
+		bullet.speed = 4.0 # Slower speed (default is 10.0)
+		bullet.scale = Vector3(2.5, 2.5, 2.5) # Bigger bullet
+	else:
+		# Medium enemy: shoot standard single bullet
+		var bullet = BULLET_SCENE.instantiate()
+		get_parent().add_child(bullet)
+		bullet.position = spawn_pos
+		bullet.direction = spawn_pos.direction_to(aim_target).normalized()
 
 func take_damage(amount: int) -> void:
 	hp -= amount

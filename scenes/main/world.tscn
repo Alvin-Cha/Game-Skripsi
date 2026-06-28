@@ -19,7 +19,6 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_lift1"]
 size = Vector3(3, 22, 2)
 
-
 [node name="World" type="Node3D" unique_id=1551797016]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1583410906]
@@ -118,4 +117,3 @@ target_destination = NodePath("../Entrance2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lift1" unique_id=123450002]
 shape = SubResource("BoxShape3D_lift1")
-
