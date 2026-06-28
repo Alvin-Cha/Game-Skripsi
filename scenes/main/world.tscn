@@ -125,9 +125,3 @@ target_destination = NodePath("../EntranceF2/Entrance2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lifts/Lift1" unique_id=123450002]
 shape = SubResource("BoxShape3D_lift1")
-
-[node name="Enemy_NPC" type="Node" parent="." unique_id=344372900]
-
-[node name="Enemy" parent="Enemy_NPC" unique_id=1489694662 node_paths=PackedStringArray("player") instance=ExtResource("2_iubku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4256406, 0.63266104, 2.1152194)
-player = NodePath("../../Player")
