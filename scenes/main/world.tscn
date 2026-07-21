@@ -58,15 +58,15 @@ size = Vector3(38.11084, 9, 1)
 material = ExtResource("4_526id")
 
 [node name="Wall3" type="CSGBox3D" parent="Walls" unique_id=790902715]
-transform = Transform3D(-0.017319076, 0, 0.17756219, 0, 1.0260723, 0, -0.5273694, 0, -0.0058312328, -24.423532, -4.125589, -4.5912085)
+transform = Transform3D(-0.017319076, 0, 0.17756219, 0, 1.0260723, 0, -0.5273694, 0, -0.0058312328, -24.446606, -4.125589, -5.2937956)
 use_collision = true
-size = Vector3(15.781143, 27.52893, 1)
+size = Vector3(13.116646, 27.52893, 1)
 material = ExtResource("4_526id")
 
 [node name="Wall4" type="CSGBox3D" parent="Walls" unique_id=1679254668]
-transform = Transform3D(-7.15591e-05, 0, -0.026621703, 0, 1.0528241, 0, 0.2791071, 0, -0.008704273, -24.201675, -5.821323, 8.585958)
+transform = Transform3D(-7.15591e-05, 0, -0.026621703, 0, 1.0528241, 0, 0.2791071, 0, -0.008704273, -24.201826, -5.821323, 9.170973)
 use_collision = true
-size = Vector3(29.067696, 29.548965, 12.372925)
+size = Vector3(24.875645, 29.548965, 12.372925)
 material = ExtResource("4_526id")
 
 [node name="Wall5" type="CSGBox3D" parent="Walls" unique_id=31465760]
