@@ -10,6 +10,11 @@
 background_mode = 1
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+size = Vector3(3.0089111, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_riqys"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0aorq"]
 albedo_color = Color(0, 1, 1, 1)
 emission_enabled = true
@@ -110,6 +115,48 @@ transform = Transform3D(-8.3447994e-05, 0, -0.008787531, 0, 1.1084373, 0, 0.0087
 use_collision = true
 size = Vector3(479.24307, 8.267914, 1.4274902)
 material = ExtResource("4_526id")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls" unique_id=1349936712]
+transform = Transform3D(-0.08190802, 0.020699559, -0.9964249, -0.0015782127, 0.99978036, 0.020898992, 0.99663866, 0.003284352, -0.08185735, 7.6777906, 1.2826807, 8.7409315)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="Wall13" type="CSGBox3D" parent="Walls" unique_id=1036974151]
+transform = Transform3D(0.0037330785, 0, 0.031670097, 0, 1.052824, 0, -0.27608526, 0, 0.011759766, -8.333848, 3.0322342, -3.0548491)
+use_collision = true
+size = Vector3(23.614964, 4.6449738, 1)
+material = ExtResource("4_526id")
+
+[node name="Wall14" type="CSGBox3D" parent="Walls" unique_id=794799190]
+transform = Transform3D(7.753575e-05, 0, 0.00796992, 0, 1.1084386, 0, -0.009720982, 0, -0.0032822608, -4.0867543, 3.3661404, -2.6923482)
+use_collision = true
+size = Vector3(733.5288, 4.6449738, 1)
+material = ExtResource("4_526id")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls" unique_id=1855957746]
+transform = Transform3D(0.6712301, 0, -0.741249, 0, 1, 0, 0.741249, 0, 0.6712301, 13.099949, 1.4152808, -0.85359454)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="Wall15" type="CSGBox3D" parent="Walls" unique_id=1610525817]
+transform = Transform3D(-6.49874e-05, 0, 0.007920943, 0, 1.108438, 0, -0.009721077, 0, -0.0033987537, -0.37972638, 3.4253235, -2.611618)
+use_collision = true
+size = Vector3(663.6896, 4.6449738, 0.001)
+material = ExtResource("4_526id")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls" unique_id=2021164293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.175684, 1.9732478, -3.6249037)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls" unique_id=2099312508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4026673, 10.081653)
+mesh = SubResource("BoxMesh_riqys")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls/MeshInstance3D4" unique_id=1102351592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.817727, 0.02336955, -1.0945797)
+mesh = SubResource("BoxMesh_riqys")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Walls/MeshInstance3D4/MeshInstance3D4" unique_id=134712477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.051950455, -10.593323)
+mesh = SubResource("BoxMesh_riqys")
 
 [node name="Floor" type="Node" parent="." unique_id=1969638465]
 
