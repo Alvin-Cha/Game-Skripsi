@@ -327,3 +327,23 @@ mesh = SubResource("BoxMesh_sn0t7")
 [node name="PlaceholderBox15" type="MeshInstance3D" parent="Placeholders" unique_id=1459980342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3966734, 1.1078367)
 mesh = SubResource("BoxMesh_riqys")
+
+[node name="Gate" type="CSGCombiner3D" parent="Placeholders" unique_id=783710710]
+transform = Transform3D(-0.08190802, 0.020699559, -0.9964249, -0.0015782127, 0.99978036, 0.020898992, 0.99663866, 0.003284352, -0.08185735, -11.333342, 1.3806262, 2.4080496)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Placeholders/Gate" unique_id=1476538714]
+transform = Transform3D(0.99796593, -0.0013355154, 0.06373572, 0.0013290131, 1, 0.00014305595, -0.063734904, -5.8372432e-05, 0.99796987, -0.45673203, 1.6354775, -0.054611206)
+size = Vector3(7.593628, 4.3847046, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Placeholders/Gate" unique_id=1767521360]
+transform = Transform3D(0.99778086, -0.0013960759, 0.066619456, 0.0013890681, 1, 0.00015156023, -0.0666188, -5.8716527e-05, 0.9977764, -0.48767614, 1.118779, 0.014224052)
+operation = 2
+size = Vector3(5.4641724, 3.2432861, 1.164917)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Placeholders/Gate" unique_id=843912089]
+transform = Transform3D(0.6766123, 0.7331257, 0.06880497, -0.73427474, 0.67877376, -0.011610342, -0.055213206, -0.042664647, 0.9975617, 2.3334641, 2.7759314, -0.23568344)
+size = Vector3(1, 1, 0.9853749)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Placeholders/Gate" unique_id=1468741671]
+transform = Transform3D(0.61613256, 0.78560734, 0.05687041, -0.7871861, 0.6166891, 0.00938349, -0.027696392, -0.050544396, 0.99834085, -3.1789365, 2.9190786, 0.11872959)
+size = Vector3(1, 1, 0.9867888)
