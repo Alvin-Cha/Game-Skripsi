@@ -25,7 +25,7 @@ size = Vector3(3.0089111, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_riqys"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sn0t7"]
-size = Vector3(1.3601103, 1, 1)
+size = Vector3(1.15027, 1, 1)
 
 [node name="World" type="Node3D" unique_id=1551797016]
 
@@ -174,9 +174,9 @@ size = Vector3(249.2001, 4.398432, 35.163025)
 material = ExtResource("4_526id")
 
 [node name="Wall13" type="CSGBox3D" parent="Walls" unique_id=1036974151]
-transform = Transform3D(0.0037330785, 0, 0.031670097, 0, 1.052824, 0, -0.27608526, 0, 0.011759766, -8.014018, 3.053072, -2.6583223)
+transform = Transform3D(0.0037330785, 0, 0.031670097, 0, 1.052824, 0, -0.27608526, 0, 0.011759766, -8.733239, 3.3225794, -3.4128983)
 use_collision = true
-size = Vector3(25.704943, 4.6449738, 21.346558)
+size = Vector3(29.681091, 4.645, 25.59956)
 material = ExtResource("4_526id")
 
 [node name="Wall14" type="CSGBox3D" parent="Walls" unique_id=794799190]
@@ -293,7 +293,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.175684, 1.3520734, -3.62490
 mesh = SubResource("BoxMesh_bhunq")
 
 [node name="PlaceholderBox8" type="MeshInstance3D" parent="Placeholders" unique_id=1285107812]
-transform = Transform3D(0.9347278, 0, 0.35536456, 0, 1, 0, -0.35536456, 0, 0.9347278, 200.38217, 4.103367, -28.10104)
+transform = Transform3D(0.9347278, 0, 0.35536456, 0, 1, 0, -0.35536456, 0, 0.9347278, 200.48024, 4.103367, -28.138325)
 mesh = SubResource("BoxMesh_sn0t7")
 
 [node name="PlaceholderBox7" type="MeshInstance3D" parent="Placeholders" unique_id=718067663]
@@ -301,7 +301,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.56812, 3.0959153, -28.097
 mesh = SubResource("BoxMesh_sn0t7")
 
 [node name="PlaceholderBox9" type="MeshInstance3D" parent="Placeholders" unique_id=995466320]
-transform = Transform3D(0.9998378, 0, -0.018009169, 0, 1, 0, 0.018009169, 0, 0.9998378, 205.72928, 3.1992645, -28.02668)
+transform = Transform3D(0.9998378, 0, -0.018009169, 0, 1, 0, 0.018009169, 0, 0.9998378, 205.9352, 3.1992645, -28.02668)
 mesh = SubResource("BoxMesh_sn0t7")
 
 [node name="PlaceholderBox10" type="MeshInstance3D" parent="Placeholders" unique_id=943062808]
