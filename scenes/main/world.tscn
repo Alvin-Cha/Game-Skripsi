@@ -102,10 +102,9 @@ use_collision = true
 size = Vector3(4, 5, 11)
 material = SubResource("StandardMaterial3D_0aorq")
 
-[node name="Lift1" type="Area3D" parent="Lifts" unique_id=123450001 node_paths=PackedStringArray("target_destination")]
+[node name="Lift1" type="Area3D" parent="Lifts" unique_id=123450001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.36471, -4.6971593, -8.539116)
 script = ExtResource("5_teleport")
-target_destination = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lifts/Lift1" unique_id=123450002]
 shape = SubResource("BoxShape3D_lift1")
@@ -118,19 +117,19 @@ player = NodePath("../../Player")
 
 [node name="Placeholders" type="Node" parent="." unique_id=480387005]
 
-[node name="PlaceholderBox1" type="MeshInstance3D" parent="Placeholders" unique_id=1349936712]
+[node name="Table2" type="MeshInstance3D" parent="Placeholders" unique_id=1349936712]
 transform = Transform3D(-0.08190802, 0.020699559, -0.9964249, -0.0015782127, 0.99978036, 0.020898992, 0.99663866, 0.003284352, -0.08185735, 7.6777906, 1.3776255, 8.7409315)
 mesh = SubResource("BoxMesh_bhunq")
 
-[node name="PlaceholderBox2" type="MeshInstance3D" parent="Placeholders" unique_id=1102351592]
+[node name="PlaceholderBox1" type="MeshInstance3D" parent="Placeholders" unique_id=1102351592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.817727, 1.4260368, 8.987073)
 mesh = SubResource("BoxMesh_riqys")
 
-[node name="PlaceholderBox3" type="MeshInstance3D" parent="Placeholders" unique_id=2099312508]
+[node name="PlaceholderBox2" type="MeshInstance3D" parent="Placeholders" unique_id=2099312508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4026673, 10.081653)
 mesh = SubResource("BoxMesh_riqys")
 
-[node name="PlaceholderBox4" type="MeshInstance3D" parent="Placeholders" unique_id=1855957746]
+[node name="FlippedTable1" type="MeshInstance3D" parent="Placeholders" unique_id=1855957746]
 transform = Transform3D(0.6712301, 0, -0.741249, 0, 1, 0, 0.741249, 0, 0.6712301, 13.099949, 1.3690631, -0.85359454)
 mesh = SubResource("BoxMesh_bhunq")
 
@@ -138,11 +137,11 @@ mesh = SubResource("BoxMesh_bhunq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6006064, 1.3740864, -1.6062498)
 mesh = SubResource("BoxMesh_riqys")
 
-[node name="PlaceholderBox6" type="MeshInstance3D" parent="Placeholders" unique_id=2021164293]
+[node name="Table1" type="MeshInstance3D" parent="Placeholders" unique_id=2021164293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.175684, 1.3520734, -3.6249037)
 mesh = SubResource("BoxMesh_bhunq")
 
-[node name="PlaceholderBox15" type="MeshInstance3D" parent="Placeholders" unique_id=1459980342]
+[node name="Chair1" type="MeshInstance3D" parent="Placeholders" unique_id=1459980342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3966734, 1.1078367)
 mesh = SubResource("BoxMesh_riqys")
 
