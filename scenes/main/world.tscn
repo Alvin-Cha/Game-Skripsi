@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bmn4chwcx6y5v" path="res://scenes/enemy/enemy.tscn" id="2_iubku"]
 [ext_resource type="Material" uid="uid://nomou70bjtjq" path="res://Wall.tres" id="4_526id"]
 [ext_resource type="Script" uid="uid://c1lajj7g646oc" path="res://scripts/teleport.gd" id="5_teleport"]
+[ext_resource type="PackedScene" uid="uid://bghbi3of1tu40" path="res://assets/furniture/shelf_final.glb" id="6_yshnf"]
 
 [sub_resource type="Environment" id="Environment_526id"]
 background_mode = 1
@@ -165,38 +166,20 @@ size = Vector3(1, 1, 0.9853749)
 transform = Transform3D(0.61613256, 0.78560734, 0.05687041, -0.7871861, 0.6166891, 0.00938349, -0.027696392, -0.050544396, 0.99834085, -3.1789365, 2.9190786, 0.11872959)
 size = Vector3(1, 1, 0.9867888)
 
-[node name="Shelf4" type="CSGBox3D" parent="Placeholders" unique_id=2044544273]
-transform = Transform3D(-0.00872971, 0, 0.0004906607, 0, 1.1084374, 0, -0.004277381, 0, -0.008605354, -5.5637493, 3.5621653, 9.204916)
-use_collision = true
-size = Vector3(25.704943, 4.6449738, 666.1796)
-material = ExtResource("4_526id")
+[node name="shelf2" parent="." unique_id=1354377686 instance=ExtResource("6_yshnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5723562, -3.0626247, 2.4019828, -2.112114)
 
-[node name="Shelf6" type="CSGBox3D" parent="Placeholders" unique_id=1653439007]
-transform = Transform3D(-0.001072929, 0, 0.007525695, 0, 1.1084384, 0, -0.009661901, 0, -0.0042019975, 2.5651236, 3.6482773, 10.003277)
-use_collision = true
-size = Vector3(455.63766, 4.6449738, 24.704193)
-material = ExtResource("4_526id")
+[node name="Shelf1" parent="." unique_id=1744699446 instance=ExtResource("6_yshnf")]
+transform = Transform3D(0.82982665, 0, 0.86802715, 0, 1, 0, -0.5580213, 0, 1.2908326, -8.273419, 2.4019828, -2.5183218)
 
-[node name="Shelf7" type="CSGBox3D" parent="Placeholders" unique_id=1036645894]
-transform = Transform3D(0.0034914366, 0.92792493, 0.004478691, 0.00043020956, 0.47248995, -0.0070289834, -0.009062486, 0.37992448, -0.0021971823, -0.5813134, 1.952646, 9.802189)
-use_collision = true
-size = Vector3(379.69916, 4.398432, 35.163025)
-material = ExtResource("4_526id")
+[node name="shelf3" parent="." unique_id=925464519 instance=ExtResource("6_yshnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.572, -0.18151659, 2.4019818, -2.6975374)
 
-[node name="Shelf1" type="CSGBox3D" parent="Placeholders" unique_id=1036974151]
-transform = Transform3D(-0.17085287, 0, 0.03201256, 0, 1.0528239, 0, -0.21690162, 0, -0.010792749, -8.994839, 3.3225794, -3.3247032)
-use_collision = true
-size = Vector3(29.681091, 4.645, 9.256086)
-material = ExtResource("4_526id")
+[node name="shelf4" parent="." unique_id=1348148234 instance=ExtResource("6_yshnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.572, -5.4939384, 2.4019837, 8.225422)
 
-[node name="Shelf2" type="CSGBox3D" parent="Placeholders" unique_id=794799190]
-transform = Transform3D(7.753575e-05, 0, 0.00796992, 0, 1.1084386, 0, -0.009720982, 0, -0.0032822608, -3.9578187, 3.3661404, -2.745448)
-use_collision = true
-size = Vector3(733.5288, 4.6449738, 31.357548)
-material = ExtResource("4_526id")
+[node name="shelf5" parent="." unique_id=1248120957 instance=ExtResource("6_yshnf")]
+transform = Transform3D(0.9892599, 0, 0.22977471, 0, 1, 0, -0.14616711, 0, 1.5551165, 3.3545551, 2.4019828, 8.65313)
 
-[node name="Shelf3" type="CSGBox3D" parent="Placeholders" unique_id=1610525817]
-transform = Transform3D(0.0006507351, 0, 0.008149631, 0, 1.108438, 0, -0.009699491, 0, -0.0028064917, -0.23925681, 3.4253235, -2.6919317)
-use_collision = true
-size = Vector3(663.6896, 4.6449738, 37.145027)
-material = ExtResource("4_526id")
+[node name="shelf6" parent="." unique_id=901062102 instance=ExtResource("6_yshnf")]
+transform = Transform3D(0.54223704, 0.84012645, -0.020268396, -0.840201, 0.542274, -0.0011103286, 0.006398447, 0.011215933, 1.571869, -1.094553, 2.7547376, 7.6028786)
