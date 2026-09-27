@@ -133,7 +133,7 @@ mesh = SubResource("BoxMesh_riqys")
 transform = Transform3D(0.6712301, 0, -0.741249, 0, 1, 0, 0.741249, 0, 0.6712301, 13.099949, 1.3690631, -0.85359454)
 mesh = SubResource("BoxMesh_bhunq")
 
-[node name="PlaceholderBox5" type="MeshInstance3D" parent="Placeholders" unique_id=134712477]
+[node name="PlaceholderBox3" type="MeshInstance3D" parent="Placeholders" unique_id=134712477]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6006064, 1.3740864, -1.6062498)
 mesh = SubResource("BoxMesh_riqys")
 
