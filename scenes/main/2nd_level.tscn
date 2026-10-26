@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dhaxo7fl7cds1"]
+[gd_scene format=3 uid="uid://i0pvrmysrqrb"]
 
-[ext_resource type="Material" uid="uid://di1wvx2r6hhbx" path="res://Floor.tres" id="1_y2s00"]
+[ext_resource type="Material" uid="uid://di1wvx2r6hhbx" path="res://assets/Textures/Floor.tres" id="1_6h68s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhunq"]
 emission_enabled = true
@@ -14,30 +14,30 @@ emission_energy_multiplier = 16.0
 [node name="Floor1" type="CSGBox3D" parent="Floors" unique_id=874253903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.562881, 0, -31.766113)
 size = Vector3(65, 0.2, 65)
-material = ExtResource("1_y2s00")
+material = ExtResource("1_6h68s")
 
 [node name="Hole1" type="CSGBox3D" parent="Floors/Floor1" unique_id=116632082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.812073, 0, -0.3846054)
 operation = 2
 size = Vector3(35.375854, 0.2, 34.377)
-material = ExtResource("1_y2s00")
+material = ExtResource("1_6h68s")
 
 [node name="Hole2" type="CSGBox3D" parent="Floors/Floor1" unique_id=1888064923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.954834, 0, 24.62819)
 operation = 2
 size = Vector3(3.090332, 0.2, 15.743622)
-material = ExtResource("1_y2s00")
+material = ExtResource("1_6h68s")
 
 [node name="Hole3" type="CSGBox3D" parent="Floors/Floor1" unique_id=1948736917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.621765, 0, 3.4640045)
 operation = 2
 size = Vector3(7.812378, 0.2, 26.806122)
-material = ExtResource("1_y2s00")
+material = ExtResource("1_6h68s")
 
 [node name="Floor2" type="CSGBox3D" parent="Floors" unique_id=621608410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.995865, 0, -45.443787)
 size = Vector3(28.978271, 0.2, 7.4786377)
-material = ExtResource("1_y2s00")
+material = ExtResource("1_6h68s")
 
 [node name="Walls" type="Node" parent="." unique_id=553370290]
 
