@@ -34,6 +34,24 @@ operation = 2
 size = Vector3(7.812378, 0.2, 26.806122)
 material = ExtResource("1_6h68s")
 
+[node name="Hole4" type="CSGBox3D" parent="Floors/Floor1" unique_id=579327719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.937153, 0, 3.4640045)
+operation = 2
+size = Vector3(7.812378, 0.2, 26.806122)
+material = ExtResource("1_6h68s")
+
+[node name="Hole5" type="CSGBox3D" parent="Floors/Floor1" unique_id=2080811500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.157997, 0, -24.943893)
+operation = 2
+size = Vector3(14.336716, 0.2, 14.692989)
+material = ExtResource("1_6h68s")
+
+[node name="Hole6" type="CSGBox3D" parent="Floors/Floor1" unique_id=1065724424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.26017, 0, -28.749763)
+operation = 2
+size = Vector3(7.4738884, 0.2, 7.1481776)
+material = ExtResource("1_6h68s")
+
 [node name="Floor2" type="CSGBox3D" parent="Floors" unique_id=621608410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.995865, 0, -45.443787)
 size = Vector3(28.978271, 0.2, 7.4786377)
@@ -62,6 +80,11 @@ size = Vector3(50.048843, 15, 0.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.19624, -3.3658905, 0)
 operation = 2
 size = Vector3(12.107652, 8.268219, 0.2)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Walls/CSGBox3D7" unique_id=2038710192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.318941, 0.605031, 0)
+operation = 2
+size = Vector3(22.423613, 8.268219, 0.2)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Walls/CSGBox3D7" unique_id=111124139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2444, -4.241539, 0)
