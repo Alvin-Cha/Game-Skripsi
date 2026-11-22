@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://i0pvrmysrqrb"]
 
 [ext_resource type="Material" uid="uid://di1wvx2r6hhbx" path="res://assets/Textures/Floor.tres" id="1_6h68s"]
+[ext_resource type="PackedScene" uid="uid://c31hfhxo6xyiw" path="res://scenes/player/player.tscn" id="2_plr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhunq"]
 emission_enabled = true
@@ -142,3 +143,6 @@ size = Vector3(3.5, 6.5, 0.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.92578, 7.6088085, 5.710435)
 size = Vector3(10, 15, 10)
 material = SubResource("StandardMaterial3D_bhunq")
+
+[node name="Player" parent="." unique_id=493579035 instance=ExtResource("2_plr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.92578, 1, -2)

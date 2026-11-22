@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c1lajj7g646oc" path="res://scripts/teleport.gd" id="4_lbyui"]
 [ext_resource type="PackedScene" uid="uid://bmn4chwcx6y5v" path="res://scenes/enemy/enemy.tscn" id="5_4y3ic"]
 [ext_resource type="PackedScene" uid="uid://bghbi3of1tu40" path="res://assets/furniture/shelf_final.glb" id="6_alg7w"]
+[ext_resource type="PackedScene" uid="uid://i0pvrmysrqrb" path="res://scenes/main/2nd_level.tscn" id="7_lv2"]
 
 [sub_resource type="Environment" id="Environment_526id"]
 background_mode = 1
@@ -106,6 +107,7 @@ material = SubResource("StandardMaterial3D_0aorq")
 [node name="Lift1" type="Area3D" parent="Lifts" unique_id=123450001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.36471, -4.6971593, -8.539116)
 script = ExtResource("4_lbyui")
+next_scene = ExtResource("7_lv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lifts/Lift1" unique_id=123450002]
 shape = SubResource("BoxShape3D_lift1")
